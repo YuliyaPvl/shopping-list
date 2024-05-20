@@ -1,18 +1,17 @@
-
-const input = document.querySelector('.input-wrapper');
+const input = document.querySelector('.input');
 const itemsList = document.querySelector('#items');
 
 function addItem(event) {
-    if (event === 'Enter' && input.textContent.trim() !==''){
+    if (event.key === 'Enter' && input.value.trim() !== '') {
         const newItem = document.createElement('div');
-        newItem.value = input.textContent;
+        newItem.textContent = input.value;
         newItem.addEventListener('click', toggleItem);
         itemsList.appendChild(newItem);
-        input.textContent='';
+        input.value = '';
     }
 }
 
-function toggleItem(){
+function toggleItem() {
     this.classList.toggle('done');
 }
 
